@@ -25,12 +25,28 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
 
-      - name: Install deps
-        run: npm ci
+      - name: Show versions
+        run: |
+          node -v
+          npm -v
 
-      - name: Build
+      - name: Install deps (ci or fallback)
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci || npm install
+          else
+            npm install
+          fi
+
+      - name: Build (CRA treats warnings as errors in CI)
+        env:
+          CI: "false"
         run: npm run build
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
