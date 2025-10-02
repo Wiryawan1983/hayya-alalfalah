@@ -1,0 +1,21 @@
+Please set the JAVA_HOME variable in your environment to match the
+location of your Java installation.
+PS C:\Users\raiha\AndroidStudioProjects\hayyaalalfalah> & "C:\Program Files\Android\Android Studio\jbr\bin\keytool.exe" -list -v `
+>>  -keystore "$env:USERPROFILE\.android\debug.keystore" `
+>>  -alias androiddebugkey -storepass android -keypass android
+Alias name: androiddebugkey
+Creation date: Jul 12, 2025
+Entry type: PrivateKeyEntry
+Certificate chain length: 1
+Certificate[1]:
+Owner: C=US, O=Android, CN=Android Debug
+Issuer: C=US, O=Android, CN=Android Debug
+Serial number: 1
+Valid from: Sat Jul 12 00:48:47 WIB 2025 until: Mon Jul 05 00:48:47 WIB 2055
+Certificate fingerprints:
+         SHA1: 6F:78:50:FA:36:48:8E:79:80:84:1B:D4:4F:2F:81:CE:AE:BD:60:84
+         SHA256: BC:7A:22:12:22:9C:A5:38:7B:26:BC:B7:87:80:B8:67:12:4D:4E:C1:F1:97:45:12:E8:52:18:2B:C2:C2:00:6A
+Signature algorithm name: SHA256withRSA
+Subject Public Key Algorithm: 2048-bit RSA key
+Version: 1
+PS C:\Users\raiha\AndroidStudioProjects\hayyaalalfalah>

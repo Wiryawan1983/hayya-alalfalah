@@ -1,0 +1,13 @@
+<script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+
+/prayer_sessions/{prayer}/active/{uid}
+  - name: String
+  - className: String
+  - startedAt: Timestamp
+  - expiresAt: Timestamp  // opsional pembersih
+
+/prayer_logs/{uid}/{yyyyMMdd}/{prayer}
+  - startedAt: Timestamp
+  - finishedAt: Timestamp
+  - durationSec: Long
+  - status: "done" | "missed"
