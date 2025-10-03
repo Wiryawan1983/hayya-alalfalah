@@ -9,25 +9,18 @@
     "@testing-library/user-event": "^13.5.0",
     "dayjs": "^1.11.18",
     "firebase": "^12.2.1",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "react-router-dom": "^7.8.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router-dom": "6.26.2",
     "react-scripts": "5.0.1",
     "recharts": "^3.2.1",
     "web-vitals": "^2.1.4",
-    "xlsx": "^0.18.5"},
-	
+    "xlsx": "^0.18.5"
+  },
   "homepage": "https://wiryawan1983.github.io/hayya-alalfalah/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && node scripts/copy404.cjs",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
