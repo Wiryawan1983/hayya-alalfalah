@@ -49,7 +49,7 @@ export default function Login() {
         <section className="w-full max-w-md rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-lg backdrop-blur dark:border-slate-800 dark:bg-slate-900/80">
           {/* Header */}
           <div className="mb-4 flex flex-col items-center text-center">
-            <img src={logoUrl} alt="Logo Al Falah" width={60} height={60} />
+            <img src={logoUrl} alt="Logo Al Falah" width={90} height={90} />
             <h1 className="text-lg font-bold text-slate-900 dark:text-slate-100">
               Aplikasi Pencatatan Sholat
             </h1>
