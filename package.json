@@ -15,16 +15,14 @@
     "react-scripts": "5.0.1",
     "recharts": "^3.2.1",
     "web-vitals": "^2.1.4",
-    "xlsx": "^0.18.5"
-    
+    "xlsx": "^0.18.5"},
+	
   "homepage": "https://wiryawan1983.github.io/hayya-alalfalah/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && node scripts/copy404.cjs",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  }
-}
 
   },
   "scripts": {
