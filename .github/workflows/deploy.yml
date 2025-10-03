@@ -1,4 +1,4 @@
-name: Deploy CRA to GitHub Pages
+name: Deploy to GitHub Pages (CRA or Vite)
 
 on:
   push:
@@ -18,17 +18,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
-      - name: Show versions
-        run: |
+      - run: |
           node -v
           npm -v
 
@@ -40,18 +36,22 @@ jobs:
             npm install
           fi
 
-      - name: Build (CRA treats warnings as errors in CI)
-        env:
-          CI: "false"
-        run: npm run build
+      - name: Detect tool and build
+        env: { CI: "false" }
+        run: |
+          if [ -f "vite.config.js" ] || [ -f "vite.config.ts" ]; then
+            echo Detected Vite
+            npm run build
+            echo "BUILD_DIR=dist" >> $GITHUB_ENV
+          else
+            echo Detected CRA
+            npm run build
+            echo "BUILD_DIR=build" >> $GITHUB_ENV
+          fi
 
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: ${{ env.BUILD_DIR }} }
 
   deploy:
     needs: build
@@ -60,6 +60,5 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4
