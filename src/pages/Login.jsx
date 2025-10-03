@@ -12,6 +12,7 @@ export default function Login() {
   const [busy, setBusy] = useState(false);
   const [busyGoogle, setBusyGoogle] = useState(false);
   const navigate = useNavigate();
+  const logoUrl = process.env.PUBLIC_URL + "/logo-alalfalah.png";
 
   const loginGoogle = async () => {
     setErr("");
@@ -48,11 +49,7 @@ export default function Login() {
         <section className="w-full max-w-md rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-lg backdrop-blur dark:border-slate-800 dark:bg-slate-900/80">
           {/* Header */}
           <div className="mb-4 flex flex-col items-center text-center">
-            <img
-              src="/logo-alalfalah.png"
-              alt="Logo Al Falah"
-              className="mb-3 h-16 w-16 rounded-lg border border-slate-200 object-cover"
-            />
+            <img src={logoUrl} alt="Logo Al Falah" width={40} height={40} />
             <h1 className="text-lg font-bold text-slate-900 dark:text-slate-100">
               Aplikasi Pencatatan Sholat
             </h1>
